@@ -2,4 +2,4 @@
 Back du projet de plateforme web CookEasy
 
 # Lien d'accès au front
-https://github.com/MKaziel/CookEasy_Back
+https://github.com/MKaziel/CookEasy_Front
