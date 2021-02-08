@@ -1,0 +1,30 @@
+version: '3.6'
+services:
+  node:
+    container_name: cookeasy_api_node
+    image: 'node:latest'
+    working_dir: /home/node/app
+    command:
+      - /bin/sh
+      - '-c'
+      - 'npm install && npm start'
+    ports:
+      - '8000:8000'
+    volumes:
+      - './src:/home/node/app'
+    links:
+      - mongo
+    networks:
+      - my-network
+    env_file:
+      - .env
+  mongo:
+    container_name: cookeasy_api_mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge
