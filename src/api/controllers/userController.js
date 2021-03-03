@@ -65,7 +65,7 @@ exports.create_an_user = (request, response) => {
         });
     } else {
         response.status(400);
-        console.log(err);
+        console.log(request.body.login);
         response.json({
             message: "Invalid Credential given !",
         });
