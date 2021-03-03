@@ -27,6 +27,11 @@ server.use(bodyParser.json());
 // server.use(cors(corsOptions)); /** Ligne à commenter pour utiliser Postman */
 server.use(cors()); /** Ligne à décommenter pour utiliser Postman */
 
+//Route pour gérer les utilisateurs
+const userRoute = require("./api/routes/userRoute");
+userRoute(server);
+
+
 //Configuration par défaut de l'écoute du serveur
 server.listen(port, hostname);
 //Configuration du port d'écoute du serveur
