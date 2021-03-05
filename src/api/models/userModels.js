@@ -14,6 +14,19 @@ let userSchema = new Schema({
         type: String,
         required: "Le mdp est requis"
     },
+    email: {
+        type: String,
+        required: "Un email est requis"
+    },
+    nom: {
+        type: String
+    },
+    prenom: {
+        type: String
+    },
+    date_naissance: {
+        type: Date
+    }
 });
 
 module.exports = mongoose.model('User', userSchema);

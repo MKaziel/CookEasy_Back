@@ -82,7 +82,7 @@ exports.login_an_user = (request, response) => {
     let rgx = new RegExp(
         "^[^\\W][a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\@[a-zA-Z0-9_]+(.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$"
     );
-    if (rgx.test(request.body.login)) {
+    if (request.body.login) {
         User.findOne(
             {
                 login: request.body.login,
@@ -106,7 +106,7 @@ exports.login_an_user = (request, response) => {
                                             login: user.login,
                                             role: "admin",
                                         },
-                                        process.env.JWT_SECRET,
+                                        process.env.JWT_KEY,
                                         {
                                             expiresIn: "30 days",
                                         },
@@ -132,7 +132,7 @@ exports.login_an_user = (request, response) => {
                                             login: user.login,
                                             role: "user",
                                         },
-                                        process.env.JWT_SECRET,
+                                        process.env.JWT_KEY,
                                         {
                                             expiresIn: "30 days",
                                         },
@@ -172,9 +172,9 @@ exports.login_an_user = (request, response) => {
             }
         );
     } else {
-        res.status(400);
+        response.status(400);
         console.log(request.body);
-        res.json({
+        response.json({
             message: "Invalid Credential given !",
         });
     }
