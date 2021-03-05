@@ -12,7 +12,7 @@ exports.list_all_post = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : post / Get all"
+                message: `Erreur serveur : post / Get all \n ${error}`
             });
         } else {
             response.status(200);
@@ -34,7 +34,7 @@ exports.create_a_post = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : post / Create"
+                message: `Erreur serveur : post / Create \n ${error}`
             });
         } else {
             response.status(201);
@@ -55,7 +55,7 @@ exports.get_a_post = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : post / Get one"
+                message: `Erreur serveur : post / Get one \n ${error}`
             });
         } else {
             response.status(200);
@@ -76,7 +76,7 @@ exports.update_a_post = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : post / Update"
+                message: `Erreur serveur : post / Update \n ${error}`
             });
         } else {
             response.status(200);
@@ -97,7 +97,7 @@ exports.delete_a_post = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : post / Delete"
+                message: `Erreur serveur : post / Delete \n ${error}`
             });
         } else {
             response.status(200);

@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 /**
- * Modèle de post
+ * Modèle de libelé
  */
-let postSchema = new Schema({
+let libeleSchema = new Schema({
     libele: {
         type: String,
         required: "Un libelé est requis",
