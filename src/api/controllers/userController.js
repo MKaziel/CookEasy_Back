@@ -15,7 +15,7 @@ exports.list_all_users = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : User / Get all",
+                message: `Erreur serveur : User / list all \n ${error} `,
             });
         } else {
             response.status(200);
@@ -46,12 +46,12 @@ exports.create_an_user = (request, response) => {
                         response.status(500);
                         console.log(error);
                         response.json({
-                            message: "Erreur serveur : User / Create",
+                            message: `Erreur serveur : User / Create \n ${error} `,
                         });
                     } else {
                         response.status(201);
                         response.json({
-                            message: `Utilisateur crée : ${user.login}`,
+                            message: `Utilisateur crée : ${user.login} \n ${error} `,
                         });
                     }
                 });
@@ -59,7 +59,7 @@ exports.create_an_user = (request, response) => {
                 response.status(500);
                 console.log(err);
                 response.json({
-                    message: "Erreur serveur : User / Create User",
+                    message: `Erreur serveur : User / Create \n ${error} `,
                 });
             }
         });
@@ -92,7 +92,7 @@ exports.login_an_user = (request, response) => {
                     response.status(500);
                     console.log(error_1);
                     response.json({
-                        message: "Erreur serveur : User / Login",
+                        message: `Erreur serveur : User / Login \n ${error} `,
                     });
                 } else if (user !== null) {
                     Bcrypt.compare(
@@ -192,7 +192,7 @@ exports.update_user = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : User / Update",
+                message: `Erreur serveur : User / Update \n ${error} `,
             });
         } else {
             response.status(200);
@@ -201,23 +201,3 @@ exports.update_user = (request, response) => {
     });
 };
 
-/**
- * 
- * @param {*} request 
- * @param {*} response
- * Récupérer tous les membres d'une team 
- */
-exports.get_users_team = (request, response) => {
-    User.find({ team_id: request.params.team_id }, (error, users) => {
-        if (error) {
-            response.status(500);
-            console.log(error);
-            response.json({
-                message: "Erreur serveur : User / Get all of team",
-            });
-        } else {
-            response.status(200);
-            response.json(users);
-        }
-    });
-};

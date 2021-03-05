@@ -12,7 +12,7 @@ exports.list_all_tag = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : tag / Get all"
+                message: `Erreur serveur : Tag / list all \n ${error} `
             });
         } else {
             response.status(200);
@@ -34,7 +34,7 @@ exports.create_a_tag = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : tag / Create"
+                message: `Erreur serveur : Tag / Create \n ${error} `
             });
         } else {
             response.status(201);
@@ -55,7 +55,7 @@ exports.get_a_tag = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : tag / Get one"
+                message: `Erreur serveur : Tag / Get one \n ${error} `
             });
         } else {
             response.status(200);
@@ -76,7 +76,7 @@ exports.update_a_tag = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : tag / Update"
+                message: `Erreur serveur : Tag / Update \n ${error} `
             });
         } else {
             response.status(200);
@@ -97,7 +97,7 @@ exports.delete_a_tag = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : tag / Delete"
+                message: `Erreur serveur : Tag / Delete \n ${error} `
             });
         } else {
             response.status(200);
