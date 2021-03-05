@@ -12,7 +12,7 @@ exports.list_all_recette = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : recette / Get all"
+                message: `Erreur serveur : Recette / list all \n ${error} `
             });
         } else {
             response.status(200);
@@ -34,7 +34,7 @@ exports.create_a_recette = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : recette / Create"
+                message: `Erreur serveur : Recette / Create \n ${error} `
             });
         } else {
             response.status(201);
@@ -55,7 +55,7 @@ exports.get_a_recette = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : recette / Get one"
+                message: `Erreur serveur : Recette / Get one \n ${error} `
             });
         } else {
             response.status(200);
@@ -76,7 +76,7 @@ exports.update_a_recette = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : recette / Update"
+                message: `Erreur serveur : Recette / Update \n ${error} `
             });
         } else {
             response.status(200);
@@ -97,7 +97,7 @@ exports.delete_a_recette = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur : recette / Delete"
+                message: `Erreur serveur : Recette / Delete \n ${error} `
             });
         } else {
             response.status(200);
