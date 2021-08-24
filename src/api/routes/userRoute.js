@@ -22,7 +22,7 @@ module.exports = (server) => {
         .put(userController.update_user);
 
     server
-        .route("/user/:user_id")
+        .route("/user/:user_login")
         //admin
         .get(userController.list_user_info);
 };

@@ -32,7 +32,7 @@ exports.list_all_users = (request, response) => {
  * Lister tous les utilisateurs 
  */
  exports.list_user_info = (request, response) => {
-    User.findById(request.params.user_id, (error, user) => {
+    User.find({"login":request.params.user_login}, (error, user) => {
         if (error) {
             response.status(500);
             console.log(error);
@@ -43,7 +43,13 @@ exports.list_all_users = (request, response) => {
             response.status(200);
             response.json({
                 message : "Donnée de l'utilisateur trouvé",
-                data: user
+                data: {
+                    "login":user[0].login,
+                    "email":user[0].email,
+                    "nom":user[0].nom,
+                    "prenom":user[0].prenom,
+                    "date_naissance": user[0].date_naissance,
+                }
             });
         }
     });
@@ -153,7 +159,7 @@ exports.login_an_user = (request, response) => {
                                 } else {
                                     jwt.sign(
                                         {
-                                            login: user.login,
+                                            login_cookeasy: user.login,
                                             role: "user",
                                         },
                                         process.env.JWT_KEY,
