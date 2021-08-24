@@ -24,6 +24,30 @@ exports.list_all_users = (request, response) => {
     });
 };
 
+
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Lister tous les utilisateurs 
+ */
+ exports.list_user_info = (request, response) => {
+    User.findById(request.params.user_id, (error, user) => {
+        if (error) {
+            response.status(500);
+            console.log(error);
+            response.json({
+                message: `Erreur serveur : User / list all \n ${error} `,
+            });
+        } else {
+            response.status(200);
+            response.json({
+                message : "Donnée de l'utilisateur trouvé",
+                data: user
+            });
+        }
+    });
+};
 /**
  * 
  * @param {*} request 

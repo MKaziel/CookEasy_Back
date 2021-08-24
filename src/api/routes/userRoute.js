@@ -20,6 +20,11 @@ module.exports = (server) => {
         .route("/users/:user_id")
         //users
         .put(userController.update_user);
+
+    server
+        .route("/user/:user_id")
+        //admin
+        .get(userController.list_user_info);
 };
 
 var express = require("express");
