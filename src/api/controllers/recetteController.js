@@ -1,4 +1,4 @@
-const recette = require('../models/recetteModel');
+const recette = require('../models/recettesModels');
 
 /**
  * 

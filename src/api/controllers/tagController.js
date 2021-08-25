@@ -1,4 +1,4 @@
-const tag = require('../models/tagModel');
+const tag = require('../models/tagModels');
 
 /**
  * 

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 /**
  * Modèle de libelé
  */
-let libeleSchema = new Schema({
+let tagSchema = new Schema({
     libele: {
         type: String,
         required: "Un libelé est requis",
@@ -12,4 +12,4 @@ let libeleSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Tag', tagSchema);

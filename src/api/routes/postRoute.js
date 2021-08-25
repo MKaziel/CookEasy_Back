@@ -1,8 +1,7 @@
 module.exports = (server) => {
-    const postController = require('../controllers/postController');
+    const postController = require("../controllers/postController");
 
-
-    server.route('/post')
+    server.route("/post")
         //all
         .get(postController.list_all_post)
 
@@ -14,7 +13,7 @@ module.exports = (server) => {
         .put( postController.update_a_post)
 
         .delete( postController.delete_a_post);
-}
+};
 
 var express = require("express");
 var router = express.Router();

@@ -28,6 +28,12 @@ server.use(bodyParser.json());
 server.use(cors()); /** Ligne à décommenter pour utiliser Postman */
 
 //Route pour gérer les utilisateurs
+const postRoute = require("./api/routes/postRoute");
+postRoute(server);
+const recetteRoute = require("./api/routes/recetteRoute");
+recetteRoute(server);
+const tagRoute = require("./api/routes/tagRoute");
+tagRoute(server);
 const userRoute = require("./api/routes/userRoute");
 userRoute(server);
 
