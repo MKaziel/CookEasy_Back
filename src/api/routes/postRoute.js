@@ -15,3 +15,8 @@ module.exports = (server) => {
 
         .delete( postController.delete_a_post);
 }
+
+var express = require("express");
+var router = express.Router();
+
+module.export = router;

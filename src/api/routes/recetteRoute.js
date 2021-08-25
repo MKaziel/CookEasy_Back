@@ -15,3 +15,8 @@ module.exports = (server) => {
 
         .delete( recetteController.delete_a_recette);
 }
+
+var express = require("express");
+var router = express.Router();
+
+module.export = router;

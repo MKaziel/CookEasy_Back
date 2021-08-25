@@ -15,3 +15,8 @@ module.exports = (server) => {
 
         .delete( tagController.delete_a_tag);
 }
+
+var express = require("express");
+var router = express.Router();
+
+module.export = router;
