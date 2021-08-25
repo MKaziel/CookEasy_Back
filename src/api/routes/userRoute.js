@@ -17,7 +17,7 @@ module.exports = (server) => {
         .post(userController.login_an_user);
 
     server
-        .route("/users/:user_id")
+        .route("/users/:user_login")
         //users
         .put(userController.update_user);
 

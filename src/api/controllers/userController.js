@@ -217,7 +217,7 @@ exports.login_an_user = (request, response) => {
  * Mettre à jour un utilisateur
  */
 exports.update_user = (request, response) => {
-    User.findByIdAndUpdate(request.params.user_id, request.body ,(error, users) => {
+    User.findOneAndUpdate({login: request.params.user_login}, request.body ,(error, userO) => {
         if (error) {
             response.status(500);
             console.log(error);
@@ -225,8 +225,27 @@ exports.update_user = (request, response) => {
                 message: `Erreur serveur : User / Update \n ${error} `,
             });
         } else {
-            response.status(200);
-            response.json("Modifications effectuées");
+            User.find({"login":request.params.user_login}, (error, userT) => {
+                if (error) {
+                    response.status(500);
+                    console.log(error);
+                    response.json({
+                        message: `Erreur serveur : User / list all \n ${error} `,
+                    });
+                } else {
+                    response.status(200);
+                    response.json({
+                        message : "Modification effectué & Donnée de l'utilisateur trouvé",
+                        data: {
+                            "login":userT[0].login,
+                            "email":userT[0].email,
+                            "nom":userT[0].nom,
+                            "prenom":userT[0].prenom,
+                            "date_naissance": userT[0].date_naissance,
+                        }
+                    });
+                }
+            });
         }
     });
 };
