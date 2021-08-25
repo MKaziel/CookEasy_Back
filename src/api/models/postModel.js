@@ -8,8 +8,7 @@ let postSchema = new Schema({
     proprietaire: {
         type: String,
         required: "Un propriétaire est requis",
-        unique: true
-    },
+        },
     contenu: {
         type: String,
         required: "Du contenu est requis pour enregistrer un post"

@@ -5,6 +5,8 @@ module.exports = (server) => {
         //all
         .get(postController.list_all_post)
 
+        .post(postController.create_a_post)
+
 
     server.route('/post/:post_id') // req.params.post_id
   

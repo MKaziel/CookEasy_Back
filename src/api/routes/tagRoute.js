@@ -6,6 +6,8 @@ module.exports = (server) => {
         //all
         .get(tagController.list_all_tag)
 
+        .post(tagController.create_a_tag)
+
 
     server.route('/tag/:tag_id') // req.params.tag_id
   
