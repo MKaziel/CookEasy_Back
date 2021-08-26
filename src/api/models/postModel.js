@@ -14,9 +14,10 @@ let postSchema = new Schema({
         required: "Du contenu est requis pour enregistrer un post"
     },
     liste_tags: {
-        type: Object,
-        required: "Une liste de tags est requise pour un post"
+        type: Array,
+        required: "Une liste de tag est requis pour la recette"
     }
 });
 
 module.exports = mongoose.model('Post', postSchema);
+
