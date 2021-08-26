@@ -105,3 +105,18 @@ exports.delete_a_post = (request,response) => {
         }
     });
 }
+
+exports.get_all_userpost = (request,response) => {
+    post.find({proprietaire: request.params.user_login}, (error, posts) => {
+        if (error) {
+            response.status(500);
+            console.log(error);
+            response.json({
+                message: `Erreur serveur : post / Get one \n ${error}`
+            });
+        } else {
+            response.status(200);
+            response.json(posts);
+        }
+    });
+}

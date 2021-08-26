@@ -15,6 +15,9 @@ module.exports = (server) => {
         .put( postController.update_a_post)
 
         .delete( postController.delete_a_post);
+
+    server.route('/userpost/:user_login')
+        .get(postController.get_all_userpost);
 };
 
 var express = require("express");

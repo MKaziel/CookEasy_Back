@@ -16,6 +16,9 @@ module.exports = (server) => {
         .put( recetteController.update_a_recette)
 
         .delete( recetteController.delete_a_recette);
+
+    server.route('/userrecette/:user_login')
+    .get(recetteController.get_all_userrecipe)
 }
 
 var express = require("express");

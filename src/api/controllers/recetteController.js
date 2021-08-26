@@ -104,3 +104,18 @@ exports.delete_a_recette = (request,response) => {
         }
     });
 }
+
+exports.get_all_userrecipe = (request,response) => {
+    recette.find({proprietaire: request.params.user_login}, (error, recipes) => {
+        if (error) {
+            response.status(500);
+            console.log(error);
+            response.json({
+                message: `Erreur serveur : recette / Get one \n ${error}`
+            });
+        } else {
+            response.status(200);
+            response.json(recipes);
+        }
+    });
+}
