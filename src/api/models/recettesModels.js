@@ -8,7 +8,6 @@ let recettesSchema = new Schema({
     proprietaire: {
         type: String,
         required: "Un propriétaire est requis",
-        unique: true
     },
     nom_recette: {
         type: String,
@@ -30,6 +29,10 @@ let recettesSchema = new Schema({
         type: Number,
         required: "Un temps de cuisson est requis pour une recette"
     },
+    preparation:{
+        type: String,
+        required: "Une indication des tâches à faire est nécessaire pour une recette"
+    }
 });
 
 module.exports = mongoose.model('Recettes', recettesSchema);
