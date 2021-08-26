@@ -15,7 +15,7 @@ let postSchema = new Schema({
     },
     liste_tags: {
         type: Object,
-        required: "Une liste d'ingrédient est requis pour la recette"
+        required: "Une liste de tags est requise pour un post"
     }
 });
 

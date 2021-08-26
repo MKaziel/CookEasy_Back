@@ -105,3 +105,17 @@ exports.delete_a_tag = (request,response) => {
         }
     });
 }
+
+exports.create_default_tag = () => {
+    let new_tag = new tag({libele: "cuisine"});
+    new_tag.save((error, tag) => {
+        if (error) {
+            console.log(500);
+            console.log(error);
+        } else {
+            console.log(201);
+            console.log(tag);
+            return tag
+        }
+    });
+}

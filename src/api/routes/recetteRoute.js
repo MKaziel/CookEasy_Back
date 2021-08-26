@@ -6,6 +6,8 @@ module.exports = (server) => {
         //all
         .get(recetteController.list_all_recette)
 
+        .post(recetteController.create_a_recette)
+
 
     server.route('/recette/:recette_id') // req.params.recette_id
   

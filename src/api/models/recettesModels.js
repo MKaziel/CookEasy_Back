@@ -17,7 +17,19 @@ let recettesSchema = new Schema({
     liste_ingredients: {
         type: Object,
         required: "Une liste d'ingrédient est requis pour la recette"
-    }
+    },
+    difficulte: {
+        type: String,
+        required: "Une difficulté doit être fournie"
+    },
+    temps_preparation: {
+        type: Number,
+        required: "Un temps de préparation est requis pour une recette"
+    },
+    temps_cuisson: {
+        type: Number,
+        required: "Un temps de cuisson est requis pour une recette"
+    },
 });
 
 module.exports = mongoose.model('Recettes', recettesSchema);
