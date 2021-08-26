@@ -32,27 +32,35 @@ exports.list_all_users = (request, response) => {
  * Lister tous les utilisateurs 
  */
  exports.list_user_info = (request, response) => {
-    User.find({"login":request.params.user_login}, (error, user) => {
-        if (error) {
-            response.status(500);
-            console.log(error);
-            response.json({
-                message: `Erreur serveur : User / list all \n ${error} `,
-            });
-        } else {
-            response.status(200);
-            response.json({
-                message : "Donnée de l'utilisateur trouvé",
-                data: {
-                    "login":user[0].login,
-                    "email":user[0].email,
-                    "nom":user[0].nom,
-                    "prenom":user[0].prenom,
-                    "date_naissance": user[0].date_naissance,
-                }
-            });
-        }
-    });
+    if(request.params.user_login != ""){
+        User.find({login:request.params.user_login}, (error, user) => {
+            if (error) {
+                response.status(500);
+                console.log(error);
+                response.json({
+                    message: `Erreur serveur : User / list all \n ${error} `,
+                });
+            } else if (user[0]) {
+                response.status(200);
+                response.json({
+                    message : "Donnée de l'utilisateur trouvé",
+                    data: {
+                        "login":user[0].login,
+                        "email":user[0].email,
+                        "nom":user[0].nom,
+                        "prenom":user[0].prenom,
+                        "date_naissance": user[0].date_naissance,
+                    }
+                });
+            } else {
+                response.status(200);
+                response.json({
+                    message : "Aucun utilisateur trouvé",
+                });
+            }
+        });
+    }
+    
 };
 /**
  * 
